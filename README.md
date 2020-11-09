@@ -11,7 +11,7 @@ This application can be used to write, save, and delete notes. It will use an ex
 - [Tests](#tests)
 - [Questions](#questions)
 ## Installation
-node.js and Inquirer package must be installed. Also utilizes util and fs.
+node.js, npm and Express must be installed.
 ## Usage
 AS A user, I want to be able to write and save notes.
 I WANT to be able to delete notes I've written before.
