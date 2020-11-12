@@ -19,8 +19,8 @@ SO THAT I can organize my thoughts and keep track of tasks I need to complete.
 
 In a business context, it's for users that need to keep track of a lot of information, it's easy to forget or be unable to recall something important. Being able to take persistent notes allows users to have written information available when needed.
 
-![image 1]()
-![image 2]()
+![image 1](public/assets/images/image1.png)
+![image 2](public/assets/images/image2.png)
  
 ## License
 MIT
