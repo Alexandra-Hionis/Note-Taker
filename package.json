@@ -17,6 +17,7 @@
   },
   "homepage": "https://github.com/Alexandra-Hionis/Note-Taker#readme",
   "dependencies": {
+    "compression": "^1.7.4",
     "express": "^4.17.1",
     "inquirer": "^7.3.3",
     "nodemon": "^2.0.6"
