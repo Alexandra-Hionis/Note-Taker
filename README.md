@@ -1,4 +1,4 @@
-https://infinite-fjord-38417.herokuapp.com/notes
+https://infinite-fjord-38417.herokuapp.com/
 
 ## Note Taker
 ## Description
