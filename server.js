@@ -1,5 +1,7 @@
 // Require express to interact with front end
 const express = require("express");
+// Require compression to improve the performance of our Node. js
+const compression = require("compression");
 // need path for filename paths
 const path = require("path");
 // need fs to read and write to files
@@ -14,6 +16,9 @@ const PORT = process.env.PORT || 3000;
 app.listen(PORT);
 console.log(`Your PORT is ${PORT}`);
 
+// api call response for all the notes, and sends the results to the browser as an array of object
+const apiRoutes = require("routes/apiRoutes.js");
+const htmlRoutes = require("routes/htmlRoutes");
 
 //  Initialize notesData
 let notesData = [];
@@ -21,7 +26,11 @@ let notesData = [];
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 app.use(express.static(path.join(__dirname, "public")));
+app.use(compression());
+app.use("/api", apiRoutes);
+app.use("/", htmlRoutes);
 // routes
-// api call response for all the notes, and sends the results to the browser as an array of object
 
-com back to this
+
+// Start the server on the port
+app.listen(PORT, () => console.log(`Listening on PORT: ${PORT}`));
