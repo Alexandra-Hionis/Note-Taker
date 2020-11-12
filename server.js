@@ -27,6 +27,8 @@ app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 app.use(express.static(path.join(__dirname, "public")));
 app.use(compression());
+// Express needs to know where the static files are so they can be served. This should fix error to load html after pressing "Get Started" button
+app.use(express.static('public'))
 app.use("/api", apiRoutes);
 app.use("/", htmlRoutes);
 // routes
