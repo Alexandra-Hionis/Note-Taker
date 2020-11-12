@@ -18,7 +18,7 @@ console.log(`Your PORT is ${PORT}`);
 
 // api call response for all the notes, and sends the results to the browser as an array of object
 const apiRoutes = require("routes/apiRoutes.js");
-const htmlRoutes = require("routes/htmlRoutes");
+const htmlRoutes = require("routes/htmlRoutes.js");
 
 //  Initialize notesData
 let notesData = [];
