@@ -1,4 +1,4 @@
-// Require express
+// Require express to interact with front end
 const express = require("express");
 // need path for filename paths
 const path = require("path");
@@ -15,25 +15,12 @@ app.listen(PORT);
 console.log(`Your PORT is ${PORT}`);
 
 
+//  Initialize notesData
 let notesData = [];
-
-app.use((req,res) => {
-  console.log("WE GOT A NEW REQUEST")
-  // Generate HTTP response
-  res.send("Got your request")
-})
-
 // Set up body parsing, static, and route middleware
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
-app.use(express.static("public"));
-app.use(compression());
-app.use("/api", apiRoutes);
-app.use("/", htmlRoutes);
-
-// const apiRoutes = require("routes/apiRoutes.js");
-// const htmlRoutes = require("routes/htmlRoutes");
-
+app.use(express.static(path.join(__dirname, "public")));
 // routes
 // api call response for all the notes, and sends the results to the browser as an array of object
 app.get("/api/notes", function(err, res) {
@@ -55,7 +42,7 @@ app.get("/api/notes", function(err, res) {
 app.post("/api/notes", function(req, res) {
   try {
     // reads the json file
-    notesData = fs.readFileSync("./db/db.json", "utf8");
+    notesData = fs.readFileSync("db/db.json", "utf8");
     console.log(notesData);
 
     // parse the data to get an array of objects
@@ -67,7 +54,7 @@ app.post("/api/notes", function(req, res) {
     // make it string(stringify)so you can write it to the file
     notesData = JSON.stringify(notesData);
     // writes the new note to file
-    fs.writeFile("./db/db.json", notesData, "utf8", function(err) {
+    fs.writeFile("db/db.json", notesData, "utf8", function(err) {
       // error handling
       if (err) throw err;
     });
@@ -83,7 +70,7 @@ app.post("/api/notes", function(req, res) {
 app.delete("/api/notes/:id", function(req, res) {
   try {
     //  reads the json file
-    notesData = fs.readFileSync("./db/db.json", "utf8");
+    notesData = fs.readFileSync("db/db.json", "utf8");
     // parse the data to get an array of the objects
     notesData = JSON.parse(notesData);
     // delete the old note from the array on note objects
@@ -93,7 +80,7 @@ app.delete("/api/notes/:id", function(req, res) {
     // make it string(stringify)so you can write it to the file
     notesData = JSON.stringify(notesData);
     // write the new notes to the file
-    fs.writeFile("./db/db.json", notesData, "utf8", function(err) {
+    fs.writeFile("db/db.json", notesData, "utf8", function(err) {
       // error handling
       if (err) throw err;
     });
