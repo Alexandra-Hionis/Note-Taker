@@ -23,3 +23,5 @@ app.use(express.urlencoded({ extended: true }));
 app.use(express.static(path.join(__dirname, "public")));
 // routes
 // api call response for all the notes, and sends the results to the browser as an array of object
+
+com back to this
