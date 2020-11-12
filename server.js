@@ -13,12 +13,10 @@ const app =  express()
 // Get server listening
 // Use port 3000 unless there exists a preconfigured port
 const PORT = process.env.PORT || 3000;
-app.listen(PORT);
-console.log(`Your PORT is ${PORT}`);
 
 // api call response for all the notes, and sends the results to the browser as an array of object
-const apiRoutes = require("routes/apiRoutes.js");
-const htmlRoutes = require("routes/htmlRoutes.js");
+const apiRoutes = require("./routes/apiRoutes.js");
+const htmlRoutes = require("./routes/htmlRoutes.js");
 
 //  Initialize notesData
 let notesData = [];
